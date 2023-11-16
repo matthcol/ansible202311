@@ -1,0 +1,9 @@
+---
+- name: Play 1 clean file system
+  hosts: myservers
+  become: yes
+  tasks:
+    - name: Remove Directory
+      ansible.builtin.file:
+        path: /opt/dummy
+        state: absent
