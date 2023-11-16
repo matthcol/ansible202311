@@ -18,3 +18,15 @@
         group: "{{ group }}"
         mode: "{{ file_mode }}"
 
+- name: Play 2 install tools
+  hosts: myservers
+  become: yes
+  tasks:
+    - name: Update Apt Cache
+      ansible.builtin.apt:
+        update_cache: yes
+    - name: Install soft(s)
+      ansible.builtin.apt:
+        name: tree
+    
+
