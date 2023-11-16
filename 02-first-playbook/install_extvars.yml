@@ -1,6 +1,7 @@
 ---
 - name: Play 1 prepare file system
   hosts: myservers
+  tags: FS
   become: yes
   tasks:
     - name: Create Directory
@@ -20,13 +21,18 @@
 
 - name: Play 2 install tools
   hosts: myservers
+  tags: DEBIAN
   become: yes
   tasks:
     - name: Update Apt Cache
       ansible.builtin.apt:
         update_cache: yes
     - name: Install soft(s)
+      tags: SOFT
       ansible.builtin.apt:
-        name: tree
+        name: "{{ item }}"
+      with_items:
+        - tree
+        - net-tools
     
 
