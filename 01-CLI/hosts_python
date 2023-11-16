@@ -1,0 +1,7 @@
+[myservers]
+host1.example.org
+host2.example.org
+host3.example.org
+
+[myservers:vars]
+ansible_python_interpreter=/usr/bin/python3
