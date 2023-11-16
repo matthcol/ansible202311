@@ -1,0 +1,6 @@
+# vi
+*.swp
+*.swo
+
+# vscode
+.vscode/
