@@ -1,0 +1,16 @@
+---
+- name: Debug variables
+  hosts: myservers
+  tasks:
+    - name: Debug actual hostname
+      ansible.builtin.debug:
+        var: ansible_hostname
+    - name: Debug inventory hostname
+      ansible.builtin.debug:
+        msg: "inventory hostname: {{ inventory_hostname }} ; short: {{ inventory_hostname_short }}"
+    - name: Debug inventory short hostname with regex_replace
+      ansible.builtin.debug:
+        msg: 
+          - "inventory short hostname: {{ inventory_hostname | regex_replace('\\.example\\.org', '')}}" 
+          - "inventory short hostname: {{ inventory_hostname | regex_replace('\\..*$', '')}}" 
+    
