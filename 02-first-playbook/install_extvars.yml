@@ -1,0 +1,20 @@
+---
+- name: Play 1 prepare file system
+  hosts: myservers
+  become: yes
+  tasks:
+    - name: Create Directory
+      ansible.builtin.file:
+        path: "{{ dest_dir }}"
+        state: directory
+        owner: "{{ owner }}"
+        group: "{{ group }}"
+        mode: "{{ dir_mode }}"
+    - name: Copy artifact
+      ansible.builtin.copy:
+        src: "{{ artifact }}"
+        dest: "{{ dest_dir }}/{{ artifact }}"
+        owner: "{{ owner }}"
+        group: "{{ group }}"
+        mode: "{{ file_mode }}"
+

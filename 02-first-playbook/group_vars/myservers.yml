@@ -1,0 +1,4 @@
+owner: installer
+group: installer
+dir_mode: 0750
+file_mode: 0640

@@ -1,0 +1,2 @@
+je suis un artifact à déployer
+(nouvelle version)

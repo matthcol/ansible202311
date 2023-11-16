@@ -2,10 +2,12 @@
 - name: Play 1 prepare file system
   hosts: myservers
   become: yes
+  vars:
+    - dest_dir: /opt/silly
   tasks:
     - name: Create Directory
       ansible.builtin.file:
-        path: /opt/dummy
+        path: "{{ dest_dir }}"
         state: directory
         owner: installer
         group: installer
@@ -13,7 +15,7 @@
     - name: Copy artifact
       ansible.builtin.copy:
         src: artifact.txt
-        dest: /opt/dummy/artifact.txt
+        dest: "{{ dest_dir }}/artifact.txt"
         owner: installer
         group: installer
         mode: 0640
