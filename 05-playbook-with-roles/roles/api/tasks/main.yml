@@ -36,5 +36,12 @@
     owner: "{{ userservicename }}"
     group: "{{ userservicename }}"
     mode: 0755 
+- name: config api
+  ansible.builtin.template:
+    src: application.properties.j2
+    dest: /opt/application.properties
+    owner: "{{ userservicename }}"
+    group: "{{ userservicename }}"
+    mode: 0644
 
 

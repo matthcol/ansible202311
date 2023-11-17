@@ -1,0 +1,9 @@
+# hibernate configuration
+spring.datasource.url=jdbc:postgresql://{{ dbhost }}:{{ dbport }}/{{ dbname }}
+spring.datasource.username={{ dbuser }}
+spring.datasource.password={{ dbpassword }}
+# DDL : Data Definition Language (create, create-drop, update, none)
+spring.jpa.hibernate.ddl-auto=update
+
+# show SQL requests
+spring.jpa.show-sql=true
