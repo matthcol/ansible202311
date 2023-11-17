@@ -61,7 +61,27 @@
         repo: "deb https://apt.postgresql.org/pub/repos/apt  {{ ansible_distribution_release }}-pgdg main"
         state: present
 
-    - name: install postgresql server
+    - name: install postgresql server + python driver
       ansible.builtin.apt:
-        name: postgresql-{{ postgresqlversion }}
+        name: "{{ item }}"
         update_cache: yes
+      loop:
+        - postgresql-{{ postgresqlversion }}
+        - python3-psycopg2
+
+    # create db (dbmovie) + user db (movie/password):
+    - name: PostgreSQL tasks
+      become: yes
+      become_user: postgres
+      tags: PGTASK
+      block:
+        - name:  create db user
+          community.postgresql.postgresql_user:
+            name: "{{ dbuser }}"
+            password: "{{ dbpassword }}"
+        - name:  create db
+          community.postgresql.postgresql_db:
+            name: "{{ dbname }}"
+            owner: "{{ dbuser }}"
+            
+
