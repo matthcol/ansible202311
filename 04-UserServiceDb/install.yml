@@ -1,0 +1,19 @@
+---
+- name: Install App
+  hosts: appservers
+  become: yes
+  tags: APP
+  tasks:
+    - name: Begin Install App
+      ansible.builtin.debug:
+        msg: "Begin Install app on {{ ansible_hostname }}"
+
+
+- name: Install Db
+  hosts: dbserver
+  become: yes
+  tags: DB
+  tasks:
+    - name: Begin Install db
+      ansible.builtin.debug:
+        msg: "Begin Install db on {{ ansible_hostname }}"
