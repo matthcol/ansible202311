@@ -93,15 +93,22 @@
             source: 192.168.56.0/24
             keep_comments_at_rules: true
             comment: "db movie rule"
+          register: result_pghba
         - name: register db server on all network interfaces
           community.postgresql.postgresql_set:
             name: listen_addresses
             value: "*"
+          register: result_pgconf
+        - name: Debug change conf
+          ansible.builtin.debug:
+            msg: 
+              - "{{ result_pghba }}"
+              - "{{ result_pgconf }}"
     - name: restart db server
       tags: PGTASK
       ansible.builtin.systemd:
         name: postgresql@{{postgresqlversion}}-main
         state: restarted
-      # TODO: only if settings has changed
+      when: result_pghba is changed or result_pgconf is changed
 
 
