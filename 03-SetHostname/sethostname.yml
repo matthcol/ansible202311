@@ -1,0 +1,47 @@
+---
+- name: Set hostname for each host
+  hosts: myservers
+  become: yes
+  vars:
+    shortname: "{{ inventory_hostname | regex_replace('\\..*$', '') }}" 
+  tasks:
+    - name: Change Hostname
+      ansible.builtin.lineinfile:
+        path: /etc/hostname
+        regexp: '^host1$'
+        line: "{{ shortname }}"
+      register: resultHostname
+    - name: Copy hosts file before editing it
+      ansible.builtin.copy:
+        # following line to fail on purpose !!
+        # src: /etc/hostsaaaaaaa
+        src: /etc/hosts
+        remote_src: true
+        dest: /etc/hosts.old
+      register: resultCopyHosts
+      ignore_errors: true
+    - name: Debug result Copy
+      ansible.builtin.debug:
+        msg:
+          - "whole result: {{ resultCopyHosts }}"
+          - "md5: {{ resultCopyHosts.md5sum | default('not defined')}}"
+          - "changed: {{ resultCopyHosts.changed }}"
+          - "changed: {{ resultCopyHosts['changed'] }}"
+          - "failed: {{ resultCopyHosts.failed }}"
+      failed_when: resultCopyHosts.failed
+    - name: Change Hosts
+      ansible.builtin.lineinfile:
+        path: /etc/hosts
+        regexp: '^127.0.1.1.*$'
+        line: "127.0.1.1\t{{ shortname }} {{ inventory_hostname }}"
+      register: resultHosts
+    - name: Debug something has changed
+      ansible.builtin.debug:
+        msg: "Somethinh has changed"
+      when: resultHostname is changed or resultHosts is changed
+    # - name: Reboot
+    #   ansible.builtin.reboot:
+    #     reboot_timeout: 500
+
+
+
