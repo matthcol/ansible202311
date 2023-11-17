@@ -1,0 +1,6 @@
+---
+# vars file for roles/api
+username: johndoe
+userservicename: myapp
+javaversion: 17
+
