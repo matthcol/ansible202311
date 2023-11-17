@@ -1,0 +1,14 @@
+---
+- name: Desnstall App
+  hosts: appservers
+  become: yes
+  tags: APP
+  tasks:
+    - name: create user interactif
+      ansible.builtin.user:
+        name: "{{ username }}"
+        state: absent
+    - name: create user interactif
+      ansible.builtin.user:
+        name: "{{ userservicename }}"
+        state: absent    

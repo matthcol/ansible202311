@@ -7,6 +7,23 @@
     - name: Begin Install App
       ansible.builtin.debug:
         msg: "Begin Install app on {{ ansible_hostname }}"
+    - name: create user interactif
+      ansible.builtin.user:
+        name: "{{ username }}"
+        shell: /usr/bin/bash
+    - name: create group service
+      ansible.builtin.group:
+        name: "{{ userservicename }}"
+        gid: 998
+    - name: create user service
+      ansible.builtin.user:
+        name: "{{ userservicename }}"
+        group: "{{ userservicename }}"
+        uid: 998
+        shell: /usr/sbin/nologin
+    
+
+    # create user service avec shell nologin
 
 
 - name: Install Db
