@@ -1,0 +1,542 @@
+{
+    "all_ipv4_addresses": [
+        "192.168.56.151",
+        "10.0.2.15"
+    ],
+    "all_ipv6_addresses": [
+        "fe80::a00:27ff:fe82:9a16",
+        "fe80::a00:27ff:feeb:6c01"
+    ],
+    "ansible_local": {},
+    "apparmor": {
+        "status": "enabled"
+    },
+    "architecture": "x86_64",
+    "bios_date": "12/01/2006",
+    "bios_vendor": "innotek GmbH",
+    "bios_version": "VirtualBox",
+    "board_asset_tag": "NA",
+    "board_name": "VirtualBox",
+    "board_serial": "NA",
+    "board_vendor": "Oracle Corporation",
+    "board_version": "1.2",
+    "chassis_asset_tag": "NA",
+    "chassis_serial": "NA",
+    "chassis_vendor": "Oracle Corporation",
+    "chassis_version": "NA",
+    "cmdline": {
+        "BOOT_IMAGE": "/vmlinuz-5.10.0-11-amd64",
+        "quiet": true,
+        "ro": true,
+        "root": "/dev/mapper/debian--vg-root"
+    },
+    "date_time": {
+        "date": "2023-11-17",
+        "day": "17",
+        "epoch": "1700235367",
+        "hour": "16",
+        "iso8601": "2023-11-17T15:36:07Z",
+        "iso8601_basic": "20231117T163607059518",
+        "iso8601_basic_short": "20231117T163607",
+        "iso8601_micro": "2023-11-17T15:36:07.059518Z",
+        "minute": "36",
+        "month": "11",
+        "second": "07",
+        "time": "16:36:07",
+        "tz": "CET",
+        "tz_offset": "+0100",
+        "weekday": "vendredi",
+        "weekday_number": "5",
+        "weeknumber": "46",
+        "year": "2023"
+    },
+    "default_ipv4": {
+        "address": "10.0.2.15",
+        "alias": "enp0s3",
+        "broadcast": "10.0.2.255",
+        "gateway": "10.0.2.2",
+        "interface": "enp0s3",
+        "macaddress": "08:00:27:eb:6c:01",
+        "mtu": 1500,
+        "netmask": "255.255.255.0",
+        "network": "10.0.2.0",
+        "type": "ether"
+    },
+    "default_ipv6": {},
+    "device_links": {
+        "ids": {
+            "dm-0": [
+                "dm-name-debian--vg-root",
+                "dm-uuid-LVM-yXU8bz0NGh1esM88QVQwqBubBeojE5relHxAYo0EOGvfR0PU3z68zEVmRc68HXLU"
+            ],
+            "dm-1": [
+                "dm-name-debian--vg-swap_1",
+                "dm-uuid-LVM-yXU8bz0NGh1esM88QVQwqBubBeojE5reXGeWo90uyKmBrwiVfbQgw6kX11W4V8eS"
+            ],
+            "sda": [
+                "ata-VBOX_HARDDISK_VB64d5cbb4-35255218"
+            ],
+            "sda1": [
+                "ata-VBOX_HARDDISK_VB64d5cbb4-35255218-part1"
+            ],
+            "sda2": [
+                "ata-VBOX_HARDDISK_VB64d5cbb4-35255218-part2"
+            ],
+            "sda5": [
+                "ata-VBOX_HARDDISK_VB64d5cbb4-35255218-part5",
+                "lvm-pv-uuid-OXYpWU-Jik5-xq1J-MBdP-lejt-pOf9-xNmXWp"
+            ],
+            "sr0": [
+                "ata-VBOX_CD-ROM_VB2-01700376"
+            ]
+        },
+        "labels": {},
+        "masters": {
+            "sda5": [
+                "dm-0",
+                "dm-1"
+            ]
+        },
+        "uuids": {
+            "dm-0": [
+                "c730439f-4e35-4e38-9407-184db329e1c3"
+            ],
+            "dm-1": [
+                "1f4576e8-e0e4-44e6-a3c4-c038fad02c6e"
+            ],
+            "sda1": [
+                "3542d77d-91bb-4db9-bde2-d86fcc07c424"
+            ]
+        }
+    },
+    "devices": {
+        "dm-0": {
+            "holders": [],
+            "host": "",
+            "links": {
+                "ids": [
+                    "dm-name-debian--vg-root",
+                    "dm-uuid-LVM-yXU8bz0NGh1esM88QVQwqBubBeojE5relHxAYo0EOGvfR0PU3z68zEVmRc68HXLU"
+                ],
+                "labels": [],
+                "masters": [],
+                "uuids": [
+                    "c730439f-4e35-4e38-9407-184db329e1c3"
+                ]
+            },
+            "model": null,
+            "partitions": {},
+            "removable": "0",
+            "rotational": "1",
+            "sas_address": null,
+            "sas_device_handle": null,
+            "scheduler_mode": "",
+            "sectors": "38928384",
+            "sectorsize": "512",
+            "size": "18.56 GB",
+            "support_discard": "0",
+            "vendor": null,
+            "virtual": 1
+        },
+        "dm-1": {
+            "holders": [],
+            "host": "",
+            "links": {
+                "ids": [
+                    "dm-name-debian--vg-swap_1",
+                    "dm-uuid-LVM-yXU8bz0NGh1esM88QVQwqBubBeojE5reXGeWo90uyKmBrwiVfbQgw6kX11W4V8eS"
+                ],
+                "labels": [],
+                "masters": [],
+                "uuids": [
+                    "1f4576e8-e0e4-44e6-a3c4-c038fad02c6e"
+                ]
+            },
+            "model": null,
+            "partitions": {},
+            "removable": "0",
+            "rotational": "1",
+            "sas_address": null,
+            "sas_device_handle": null,
+            "scheduler_mode": "",
+            "sectors": "2007040",
+            "sectorsize": "512",
+            "size": "980.00 MB",
+            "support_discard": "0",
+            "vendor": null,
+            "virtual": 1
+        },
+        "sda": {
+            "holders": [],
+            "host": "SATA controller: Intel Corporation 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode] (rev 02)",
+            "links": {
+                "ids": [
+                    "ata-VBOX_HARDDISK_VB64d5cbb4-35255218"
+                ],
+                "labels": [],
+                "masters": [],
+                "uuids": []
+            },
+            "model": "VBOX HARDDISK",
+            "partitions": {
+                "sda1": {
+                    "holders": [],
+                    "links": {
+                        "ids": [
+                            "ata-VBOX_HARDDISK_VB64d5cbb4-35255218-part1"
+                        ],
+                        "labels": [],
+                        "masters": [],
+                        "uuids": [
+                            "3542d77d-91bb-4db9-bde2-d86fcc07c424"
+                        ]
+                    },
+                    "sectors": "997376",
+                    "sectorsize": 512,
+                    "size": "487.00 MB",
+                    "start": "2048",
+                    "uuid": "3542d77d-91bb-4db9-bde2-d86fcc07c424"
+                },
+                "sda2": {
+                    "holders": [],
+                    "links": {
+                        "ids": [
+                            "ata-VBOX_HARDDISK_VB64d5cbb4-35255218-part2"
+                        ],
+                        "labels": [],
+                        "masters": [],
+                        "uuids": []
+                    },
+                    "sectors": "2",
+                    "sectorsize": 512,
+                    "size": "1.00 KB",
+                    "start": "1001470",
+                    "uuid": null
+                },
+                "sda5": {
+                    "holders": [
+                        "debian--vg-swap_1",
+                        "debian--vg-root"
+                    ],
+                    "links": {
+                        "ids": [
+                            "ata-VBOX_HARDDISK_VB64d5cbb4-35255218-part5",
+                            "lvm-pv-uuid-OXYpWU-Jik5-xq1J-MBdP-lejt-pOf9-xNmXWp"
+                        ],
+                        "labels": [],
+                        "masters": [
+                            "dm-0",
+                            "dm-1"
+                        ],
+                        "uuids": []
+                    },
+                    "sectors": "40939520",
+                    "sectorsize": 512,
+                    "size": "19.52 GB",
+                    "start": "1001472",
+                    "uuid": null
+                }
+            },
+            "removable": "0",
+            "rotational": "1",
+            "sas_address": null,
+            "sas_device_handle": null,
+            "scheduler_mode": "mq-deadline",
+            "sectors": "41943040",
+            "sectorsize": "512",
+            "size": "20.00 GB",
+            "support_discard": "0",
+            "vendor": "ATA",
+            "virtual": 1
+        },
+        "sr0": {
+            "holders": [],
+            "host": "IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)",
+            "links": {
+                "ids": [
+                    "ata-VBOX_CD-ROM_VB2-01700376"
+                ],
+                "labels": [],
+                "masters": [],
+                "uuids": []
+            },
+            "model": "CD-ROM",
+            "partitions": {},
+            "removable": "1",
+            "rotational": "1",
+            "sas_address": null,
+            "sas_device_handle": null,
+            "scheduler_mode": "mq-deadline",
+            "sectors": "2097151",
+            "sectorsize": "512",
+            "size": "1024.00 MB",
+            "support_discard": "0",
+            "vendor": "VBOX",
+            "virtual": 1
+        }
+    },
+    "distribution": "Debian",
+    "distribution_file_parsed": true,
+    "distribution_file_path": "/etc/os-release",
+    "distribution_file_variety": "Debian",
+    "distribution_major_version": "11",
+    "distribution_release": "bullseye",
+    "distribution_version": "11",
+    "dns": {
+        "nameservers": [
+            "8.8.8.8"
+        ],
+        "search": [
+            "Formation.priv"
+        ]
+    },
+    "domain": "example.org",
+    "effective_group_id": 1002,
+    "effective_user_id": 1002,
+    "enp0s3": {
+        "active": true,
+        "device": "enp0s3",
+        "ipv4": {
+            "address": "10.0.2.15",
+            "broadcast": "10.0.2.255",
+            "netmask": "255.255.255.0",
+            "network": "10.0.2.0"
+        },
+        "ipv6": [
+            {
+                "address": "fe80::a00:27ff:feeb:6c01",
+                "prefix": "64",
+                "scope": "link"
+            }
+        ],
+        "macaddress": "08:00:27:eb:6c:01",
+        "module": "e1000",
+        "mtu": 1500,
+        "pciid": "0000:00:03.0",
+        "promisc": false,
+        "speed": 1000,
+        "type": "ether"
+    },
+    "enp0s9": {
+        "active": true,
+        "device": "enp0s9",
+        "ipv4": {
+            "address": "192.168.56.151",
+            "broadcast": "192.168.56.255",
+            "netmask": "255.255.255.0",
+            "network": "192.168.56.0"
+        },
+        "ipv6": [
+            {
+                "address": "fe80::a00:27ff:fe82:9a16",
+                "prefix": "64",
+                "scope": "link"
+            }
+        ],
+        "macaddress": "08:00:27:82:9a:16",
+        "module": "e1000",
+        "mtu": 1500,
+        "pciid": "0000:00:09.0",
+        "promisc": false,
+        "speed": 1000,
+        "type": "ether"
+    },
+    "env": {
+        "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1002/bus",
+        "HOME": "/home/installerauto",
+        "LANG": "fr_FR.UTF-8",
+        "LOGNAME": "installerauto",
+        "MOTD_SHOWN": "pam",
+        "PATH": "/usr/local/bin:/usr/bin:/bin:/usr/games",
+        "PWD": "/home/installerauto",
+        "SHELL": "/usr/bin/bash",
+        "SHLVL": "0",
+        "SSH_CLIENT": "192.168.56.101 57884 22",
+        "SSH_CONNECTION": "192.168.56.101 57884 192.168.56.151 22",
+        "SSH_TTY": "/dev/pts/0",
+        "TERM": "xterm-256color",
+        "USER": "installerauto",
+        "XDG_RUNTIME_DIR": "/run/user/1002",
+        "XDG_SESSION_CLASS": "user",
+        "XDG_SESSION_ID": "92",
+        "XDG_SESSION_TYPE": "tty",
+        "_": "/bin/sh"
+    },
+    "fibre_channel_wwn": [],
+    "fips": false,
+    "form_factor": "Other",
+    "fqdn": "host3.example.org",
+    "gather_subset": [
+        "all"
+    ],
+    "hostname": "host3",
+    "hostnqn": "",
+    "interfaces": [
+        "lo",
+        "enp0s9",
+        "enp0s3"
+    ],
+    "is_chroot": false,
+    "iscsi_iqn": "",
+    "kernel": "5.10.0-11-amd64",
+    "kernel_version": "#1 SMP Debian 5.10.92-1 (2022-01-18)",
+    "lo": {
+        "active": true,
+        "device": "lo",
+        "ipv4": {
+            "address": "127.0.0.1",
+            "broadcast": "",
+            "netmask": "255.0.0.0",
+            "network": "127.0.0.0"
+        },
+        "ipv6": [
+            {
+                "address": "::1",
+                "prefix": "128",
+                "scope": "host"
+            }
+        ],
+        "mtu": 65536,
+        "promisc": false,
+        "type": "loopback"
+    },
+    "lsb": {
+        "codename": "bullseye",
+        "description": "Debian GNU/Linux 11 (bullseye)",
+        "id": "Debian",
+        "major_release": "11",
+        "release": "11"
+    },
+    "machine": "x86_64",
+    "machine_id": "f95f245b757c4d079ef139ed37c17d9c",
+    "memfree_mb": 1103,
+    "memory_mb": {
+        "nocache": {
+            "free": 1755,
+            "used": 227
+        },
+        "real": {
+            "free": 1103,
+            "total": 1982,
+            "used": 879
+        },
+        "swap": {
+            "cached": 0,
+            "free": 979,
+            "total": 979,
+            "used": 0
+        }
+    },
+    "memtotal_mb": 1982,
+    "module_setup": true,
+    "mounts": [
+        {
+            "block_available": 3287115,
+            "block_size": 4096,
+            "block_total": 4745535,
+            "block_used": 1458420,
+            "device": "/dev/mapper/debian--vg-root",
+            "fstype": "ext4",
+            "inode_available": 1055318,
+            "inode_total": 1218224,
+            "inode_used": 162906,
+            "mount": "/",
+            "options": "rw,relatime,errors=remount-ro",
+            "size_available": 13464023040,
+            "size_total": 19437711360,
+            "uuid": "c730439f-4e35-4e38-9407-184db329e1c3"
+        },
+        {
+            "block_available": 342965,
+            "block_size": 1024,
+            "block_total": 480618,
+            "block_used": 137653,
+            "device": "/dev/sda1",
+            "fstype": "ext2",
+            "inode_available": 124577,
+            "inode_total": 124928,
+            "inode_used": 351,
+            "mount": "/boot",
+            "options": "rw,relatime",
+            "size_available": 351196160,
+            "size_total": 492152832,
+            "uuid": "3542d77d-91bb-4db9-bde2-d86fcc07c424"
+        }
+    ],
+    "nodename": "host3",
+    "os_family": "Debian",
+    "pkg_mgr": "apt",
+    "proc_cmdline": {
+        "BOOT_IMAGE": "/vmlinuz-5.10.0-11-amd64",
+        "quiet": true,
+        "ro": true,
+        "root": "/dev/mapper/debian--vg-root"
+    },
+    "processor": [
+        "0",
+        "GenuineIntel",
+        "Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz"
+    ],
+    "processor_cores": 1,
+    "processor_count": 1,
+    "processor_nproc": 1,
+    "processor_threads_per_core": 1,
+    "processor_vcpus": 1,
+    "product_name": "VirtualBox",
+    "product_serial": "NA",
+    "product_uuid": "NA",
+    "product_version": "1.2",
+    "python": {
+        "executable": "/usr/bin/python3",
+        "has_sslcontext": true,
+        "type": "cpython",
+        "version": {
+            "major": 3,
+            "micro": 2,
+            "minor": 9,
+            "releaselevel": "final",
+            "serial": 0
+        },
+        "version_info": [
+            3,
+            9,
+            2,
+            "final",
+            0
+        ]
+    },
+    "python_version": "3.9.2",
+    "real_group_id": 1002,
+    "real_user_id": 1002,
+    "selinux": {
+        "status": "Missing selinux Python library"
+    },
+    "selinux_python_present": false,
+    "service_mgr": "systemd",
+    "ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKp+O9R0i9+tuNiizWETt83b7nongDsyRgjD4wpJwFPcyDjwCR/DcYKqxv92gKSIlBLf7Jdcqmd1+M9J9eAwnfI=",
+    "ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
+    "ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIOAq/VpVu3Q0jMVu4sC0tR/sGZNMYGpdcTpIYz/wpU/Z",
+    "ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
+    "ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQDAsebNDhh0Y3ZhmRS2NE7MhgkmpY4TDXc/NXu2SxFjwfOcLpEZkBAAjPwZP5BXy4HhX7/7pg1Xl7EHCZF/hd0oKGlm+pvHBfBdzHXfi9B33QjonVZXDseqqDZjiEE/XtpuxTEnOSqNdQr1SVnFbZCYoUBHN4lePOWKAt9gKIxW1cYdK8hMVd908h2Tl5t84ideEWAjUHtrLvGrHlzsCC/PkrGEfUZRGTiSh7S7NC4MfUTqg2tqRvXJn6raRwOiZM0etXur/xpgFhSpifZmXerkut03hSJx693HycmoacHx4gslFD8Sf4/FBftta4Tbb5QFbslItNqqz0NwRqwJn0VGuYu7NqAxEd41tjZsquG0hLbAtxtsCmzDe93GUAkSDwB9LkRiU7cO42ZOErL+I12mYX8FwNH9G555x4XCTdhzcD3IIWIwmzjih2md4R3qC0Jep5tZ/IRfjC7yEpplHXK57OMzOp8r8mDIlE0npzYchWOQNomtfX6Z5lWbKstox8U=",
+    "ssh_host_key_rsa_public_keytype": "ssh-rsa",
+    "swapfree_mb": 979,
+    "swaptotal_mb": 979,
+    "system": "Linux",
+    "system_capabilities": [
+        ""
+    ],
+    "system_capabilities_enforced": "True",
+    "system_vendor": "innotek GmbH",
+    "uptime_seconds": 27318,
+    "user_dir": "/home/installerauto",
+    "user_gecos": "",
+    "user_gid": 1002,
+    "user_id": "installerauto",
+    "user_shell": "/usr/bin/bash",
+    "user_uid": 1002,
+    "userspace_architecture": "x86_64",
+    "userspace_bits": "64",
+    "virtualization_role": "guest",
+    "virtualization_type": "virtualbox"
+}
+
