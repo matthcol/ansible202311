@@ -21,10 +21,28 @@
         group: "{{ userservicename }}"
         uid: 998
         shell: /usr/sbin/nologin
+    - name: Install nginx server + jre Java
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        update_cache: yes
+      loop:
+        - nginx
+        - openjdk-{{ javaversion }}-jre
+    - name: nginx service stopped and disabled
+      ansible.builtin.systemd:
+        name: nginx
+        state: stopped
+        enabled: false
+    - name: copy api artifact
+      tags: ARTIFACT
+      ansible.builtin.copy:
+        src: ~/artifacts/movieapi-{{ javaversion }}.jar
+        dest: /opt
+        owner: "{{ userservicename }}"
+        group: "{{ userservicename }}"
+        mode: 0755 
     
-
-    # create user service avec shell nologin
-
+    # deploy artifact: movieapi-[java version].jar
 
 - name: Install Db
   hosts: dbserver
@@ -34,3 +52,16 @@
     - name: Begin Install db
       ansible.builtin.debug:
         msg: "Begin Install db on {{ ansible_hostname }}"
+    - name: add key repo postgresql
+      ansible.builtin.apt_key:
+        url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+        state: present
+    - name: add repo postgresql
+      ansible.builtin.apt_repository:
+        repo: "deb https://apt.postgresql.org/pub/repos/apt  {{ ansible_distribution_release }}-pgdg main"
+        state: present
+
+    - name: install postgresql server
+      ansible.builtin.apt:
+        name: postgresql-{{ postgresqlversion }}
+        update_cache: yes
