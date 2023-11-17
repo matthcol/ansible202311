@@ -20,7 +20,7 @@
 
 # create db (dbmovie) + user db (movie/password):
 - name: PostgreSQL tasks
-  become: yes
+  become: true
   become_user: postgres
   tags: PGTASK
   block:

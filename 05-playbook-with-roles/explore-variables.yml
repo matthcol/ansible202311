@@ -16,6 +16,5 @@
     - name: Print custom fact
       tags: IP
       ansible.builtin.debug:
-        # TODO: print fact
-        msg: "{{ ansible_facts['ip_private'] }}"
+        msg: "{{ ip_private }}"
       
