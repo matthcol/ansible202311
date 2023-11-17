@@ -83,5 +83,25 @@
           community.postgresql.postgresql_db:
             name: "{{ dbname }}"
             owner: "{{ dbuser }}"
-            
+        - name: Grant user access to db
+          community.postgresql.postgresql_pg_hba:
+            dest: /etc/postgresql/{{ postgresqlversion }}/main/pg_hba.conf
+            contype: host
+            users: "{{ dbuser }}"
+            databases: "{{ dbname }}"
+            method: scram-sha-256
+            source: 192.168.56.0/24
+            keep_comments_at_rules: true
+            comment: "db movie rule"
+        - name: register db server on all network interfaces
+          community.postgresql.postgresql_set:
+            name: listen_addresses
+            value: "*"
+    - name: restart db server
+      tags: PGTASK
+      ansible.builtin.systemd:
+        name: postgresql@{{postgresqlversion}}-main
+        state: restarted
+      # TODO: only if settings has changed
+
 
