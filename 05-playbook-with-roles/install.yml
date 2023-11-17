@@ -1,0 +1,16 @@
+---
+- name: Install App
+  hosts: appservers
+  become: yes
+  tags: APP
+  roles:
+    - common
+    - api
+ 
+- name: Install Db
+  hosts: dbserver
+  become: yes
+  tags: DB
+  roles:
+    - common
+    - db

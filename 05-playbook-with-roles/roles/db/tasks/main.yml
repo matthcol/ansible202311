@@ -1,2 +1,63 @@
----
-# tasks file for roles/db
+- name: Begin Install db
+  ansible.builtin.debug:
+    msg: "Begin Install db on {{ ansible_hostname }}"
+- name: add key repo postgresql
+  ansible.builtin.apt_key:
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    state: present
+- name: add repo postgresql
+  ansible.builtin.apt_repository:
+    repo: "deb https://apt.postgresql.org/pub/repos/apt  {{ ansible_distribution_release }}-pgdg main"
+    state: present
+
+- name: install postgresql server + python driver
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    update_cache: yes
+  loop:
+    - postgresql-{{ postgresqlversion }}
+    - python3-psycopg2
+
+# create db (dbmovie) + user db (movie/password):
+- name: PostgreSQL tasks
+  become: yes
+  become_user: postgres
+  tags: PGTASK
+  block:
+    - name:  create db user
+      community.postgresql.postgresql_user:
+        name: "{{ dbuser }}"
+        password: "{{ dbpassword }}"
+    - name:  create db
+      community.postgresql.postgresql_db:
+        name: "{{ dbname }}"
+        owner: "{{ dbuser }}"
+    - name: Grant user access to db
+      community.postgresql.postgresql_pg_hba:
+        dest: /etc/postgresql/{{ postgresqlversion }}/main/pg_hba.conf
+        contype: host
+        users: "{{ dbuser }}"
+        databases: "{{ dbname }}"
+        method: scram-sha-256
+        source: 192.168.56.0/24
+        keep_comments_at_rules: true
+        comment: "db movie rule"
+      register: result_pghba
+    - name: register db server on all network interfaces
+      community.postgresql.postgresql_set:
+        name: listen_addresses
+        value: "*"
+      register: result_pgconf
+    - name: Debug change conf
+      ansible.builtin.debug:
+        msg: 
+          - "{{ result_pghba }}"
+          - "{{ result_pgconf }}"
+- name: restart db server
+  tags: PGTASK
+  ansible.builtin.systemd:
+    name: postgresql@{{postgresqlversion}}-main
+    state: restarted
+  when: result_pghba is changed or result_pgconf is changed
+
+

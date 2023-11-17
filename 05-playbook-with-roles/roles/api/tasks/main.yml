@@ -1,2 +1,40 @@
 ---
-# tasks file for roles/api
+- name: Begin Install App
+  ansible.builtin.debug:
+    msg: "Begin Install app on {{ ansible_hostname }}"
+- name: create user interactif
+  ansible.builtin.user:
+    name: "{{ username }}"
+    shell: /usr/bin/bash
+- name: create group service
+  ansible.builtin.group:
+    name: "{{ userservicename }}"
+    gid: 998
+- name: create user service
+  ansible.builtin.user:
+    name: "{{ userservicename }}"
+    group: "{{ userservicename }}"
+    uid: 998
+    shell: /usr/sbin/nologin
+- name: Install nginx server + jre Java
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    update_cache: yes
+  loop:
+    - nginx
+    - openjdk-{{ javaversion }}-jre
+- name: nginx service stopped and disabled
+  ansible.builtin.systemd:
+    name: nginx
+    state: stopped
+    enabled: false
+- name: copy api artifact
+  tags: ARTIFACT
+  ansible.builtin.copy:
+    src: ~/artifacts/movieapi-{{ javaversion }}.jar
+    dest: /opt
+    owner: "{{ userservicename }}"
+    group: "{{ userservicename }}"
+    mode: 0755 
+
+

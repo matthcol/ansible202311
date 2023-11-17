@@ -1,0 +1,6 @@
+[appservers]
+host1.example.org
+host2.example.org
+
+[dbserver]
+host3.example.org
